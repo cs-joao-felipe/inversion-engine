@@ -18,8 +18,6 @@ package io.inversion.cloud.rql;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.inversion.cloud.model.Index;
-
 public class Select<T extends Select, P extends Query> extends Builder<T, P>
 {
    public Select(P query)
@@ -82,7 +80,7 @@ public class Select<T extends Select, P extends Query> extends Builder<T, P>
 
       }
 
-      if (functions.contains(token.toLowerCase()) && !term.hasToken("as", "includes", "excludes", "distinct"))
+      if (functions.contains(token.toLowerCase()) && !term.hasToken("as", "includes", "excludes", "distinct", "source"))
       {
          String asName = "$$$ANON";
          if (term.size() > 1 && term.hasToken("count", "sum", "min", "max"))
